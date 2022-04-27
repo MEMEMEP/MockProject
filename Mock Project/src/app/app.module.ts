@@ -6,7 +6,9 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { MarkerService } from './shared/services/marker.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { CoronaChartComponent } from './components/corona-chart/corona-chart.component';
 import { CoronaMapComponent } from './components/corona-map/corona-map.component';
@@ -14,6 +16,7 @@ import { CoronaRegionComponent } from './components/corona-region/corona-region.
 import { CoronaWorldComponent } from './components/corona-world/corona-world.component';
 import { WeatherComponent } from './components/weather/weather.component';
 import { FormsModule } from '@angular/forms';
+import { Covid19Service } from './shared/services/covid19.service';
 
 
 @NgModule({
@@ -30,10 +33,12 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     LeafletModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
-    MarkerService
+    MarkerService,
+    Covid19Service
   ],
   bootstrap: [AppComponent]
 })
