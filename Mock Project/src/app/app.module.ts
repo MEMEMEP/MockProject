@@ -13,6 +13,8 @@ import { CoronaMapComponent } from './components/corona-map/corona-map.component
 import { CoronaRegionComponent } from './components/corona-region/corona-region.component';
 import { CoronaWorldComponent } from './components/corona-world/corona-world.component';
 import { WeatherComponent } from './components/weather/weather.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { WeatherComponent } from './components/weather/weather.component';
     AppRoutingModule,
     HttpClientModule,
     LeafletModule,
+    FormsModule
   ],
   providers: [
     MarkerService
