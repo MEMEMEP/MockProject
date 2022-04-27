@@ -34,7 +34,8 @@ import { Covid19Service } from './shared/services/covid19.service';
     HttpClientModule,
     LeafletModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxChartsModule
   ],
   providers: [
     MarkerService,
