@@ -25,34 +25,70 @@ export class CoronaMapComponent implements OnInit {
 
       // console.log(res.map(o => o.confirmed));
 
-      this.coronaData.forEach((e: any) => {
-        if (e.confirmed <= 3000000) {
-          const circle = L.circleMarker([e.location.lat, e.location.lng],
-            {
-              fillColor: "#FF5733",
-              color: "#FF5733",
-              weight: 1,
-              opacity: 1,
-              fillOpacity: 0.4,
-              radius: 10
-            }
-          )
-            .bindPopup(`Country: ${e.countryregion}, Case: ${e.confirmed}, Deaths: ${e.deaths}, Recovered: ${e.recovered}`)
-            this.layers.push(circle);
-        } else if (e.confirmed > 3000000) {
-          const circle = L.circleMarker([e.location.lat, e.location.lng],
-            {
-              fillColor: "#FF5733",
-              color: "#FF5733",
-              weight: 1,
-              opacity: 1,
-              fillOpacity: 0.4,
-              radius: e.confirmed/300000
-            }
-          )
-            .bindPopup(`Country: ${e.countryregion}, Case: ${e.confirmed}, Deaths: ${e.deaths}, Recovered: ${e.recovered}`)
-            this.layers.push(circle);
+      for (const c of res) {
+        const lat = c.location.lat;
+        const lng = c.location.lng;
+        if(c.confirmed<100000){
+        let circle = L.circleMarker([lat, lng],
+          {
+            // radius: MarkerService.scaledRadius(c.confirmed, maxCase)
+            fillColor: "#FF5733",
+            color: "#FF5733",
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.4,
+            radius: 10
+          }
+        )
+          .bindPopup(`Country: ${c.countryregion}, Case: ${c.confirmed}, Deaths: ${c.deaths}, Recovered: ${c.recovered}`)
+          .addTo(this.map);
         }
+        else if(c.confirmed>=100000 && c.confirmed<1000000){
+          let circle = L.circleMarker([lat, lng],
+            {
+              // radius: MarkerService.scaledRadius(c.confirmed, maxCase)
+              fillColor: "#FF5733",
+              color: "#FF5733",
+              weight: 1,
+              opacity: 1,
+              fillOpacity: 0.4,
+              radius: 20
+            }
+          )
+            .bindPopup(`Country: ${c.countryregion}, Case: ${c.confirmed}, Deaths: ${c.deaths}, Recovered: ${c.recovered}`)
+            .addTo(this.map);
+        }
+        else if(c.confirmed>1000000&&c.confirmed<10000000){
+          let circle = L.circleMarker([lat, lng],
+            {
+              // radius: MarkerService.scaledRadius(c.confirmed, maxCase)
+              fillColor: "#FF5733",
+              color: "#FF5733",
+              weight: 1,
+              opacity: 1,
+              fillOpacity: 0.4,
+              radius: 30
+            }
+          )
+            .bindPopup(`Country: ${c.countryregion}, Case: ${c.confirmed}, Deaths: ${c.deaths}, Recovered: ${c.recovered}`)
+            .addTo(this.map);
+        }
+        else if(c.confirmed>10000000){
+          let circle = L.circleMarker([lat, lng],
+            {
+              // radius: MarkerService.scaledRadius(c.confirmed, maxCase)
+              fillColor: "#FF5733",
+              color: "#FF5733",
+              weight: 1,
+              opacity: 1,
+              fillOpacity: 0.4,
+              radius: 50
+            }
+          )
+            .bindPopup(`Country: ${c.countryregion}, Case: ${c.confirmed}, Deaths: ${c.deaths}, Recovered: ${c.recovered}`)
+            .addTo(this.map);
+        }
+      }
       });
 
 

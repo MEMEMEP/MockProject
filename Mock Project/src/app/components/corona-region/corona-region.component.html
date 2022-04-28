@@ -4,9 +4,11 @@
           <label class="h4 mr-1" >Regional</label>
           <label class="small-lb text-muted">Country & Region</label>
 
-        <select  [(ngModel)]='selectedOption'  (change)='getOptionCountry()' style="width: 200px;border-top: none;border-left: none;border-right: none;border-radius: 0%;" class="form-control">
-          <option value="0"  selected > Select Country</option>
-          <option  *ngFor="let country of getCountry(this.coronaData)" [value]="country"> {{ country}}</option>
+        <select  [(ngModel)]='selectedOption'
+        (change)='getOptionCountry()'
+        style="width: 200px;border-top: none;border-left: none;border-right: none;border-radius: 0%;" class="form-control">
+          <option value="" selected>Select Country</option>
+          <option *ngFor="let country of getCountry(this.coronaData)" [value]="country"> {{ country}}</option>
         </select>
       </div>
 
@@ -14,19 +16,19 @@
     <div class="row d-flex bs text-white">
       <div class="col m-1 cf p-2 rounded">
         <i class="fas fa-user-alt"></i><span>&ensp;Confirmed</span>
-        <p>{{confirmed}}</p>
+        <!-- <p>{{confirmed}}</p> -->
       </div>
       <div class="col m-1 rc p-2 rounded">
         <i class="fas fa-plus-square"> </i><span>&ensp;Recovered</span>
-        <p>{{reCover}}</p>
+        <!-- <p>{{reCover}}</p> -->
       </div>
       <div class="col m-1 d p-2 rounded">
         <i class="fas fa-skull-crossbones"></i> <span>&ensp;Deaths</span>
-        <p>{{deaths}}</p>
+        <!-- <p>{{deaths}}</p> -->
       </div>
       <div class="col m-1 fr p-2 rounded">
         <i class="fas fa-exclamation-circle"></i> <span>&ensp;Fatality rate</span>
-        <p>{{ fatality}}%</p>
+        <!-- <p>{{ fatality}}%</p> -->
       </div>
     </div>
   </div> -->
