@@ -22,6 +22,7 @@
     "@swimlane/ngx-charts": "^20.1.0",
     "@syncfusion/ej2-angular-maps": "^20.1.48",
     "@types/leaflet": "^1.7.9",
+    "bootstrap": "^5.1.3",
     "leaflet": "^1.8.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
