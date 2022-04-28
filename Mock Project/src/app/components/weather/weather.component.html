@@ -1,76 +1,76 @@
 <div class="search" style="padding-right: 880px; padding-top: 600px;">
-    <form #form="ngForm" (submit)="onSubmit()">
-      <input type="text" placeholder="Search city" name="city" [(ngModel)]="cityName">
-    </form>
-  </div>
-  
-  <div class="container" *ngIf="weatherData">
-    <div class="upper-data">
-      <img src="../assets/cartoon-desert-006.jpg" alt="Hot Weather"
-        *ngIf="((weatherData.main.temp) - 32)/1.8000 > 25">
-      <img src="../assets/sunny.jpg" alt="Warm Weather"
-        *ngIf="((weatherData.main.temp) - 32)/1.8000 <=25 && ((weatherData.main.temp) - 32)/1.8000 > 20">
-      <img
-        src="../assets/snowman-cabin-winter-snow-scene-cartoon-illustration-top-hat-scarf-small-its-lights-chimney-smoking-46445483.jpg"
-        alt="Cold Weather" *ngIf="((weatherData.main.temp) - 32)/1.8000 <= 20">
-      <div class="weather-data">
-        <div class="location">
-          {{ weatherData.name }}
-        </div>
-        <div class="temperature">
-          {{ ((weatherData.main.temp) - 32)/1.8000 | number:'1.0-0' }}&deg;C
-        </div>
+  <form #form="ngForm" (submit)="onSubmit()">
+    <input type="text" placeholder="Search city" name="city" [(ngModel)]="cityName">
+  </form>
+</div>
+
+<div class="container" *ngIf="weatherData">
+  <div class="upper-data">
+    <img src="../assets/cartoon-desert-006.jpg" alt="Hot Weather"
+      *ngIf="((weatherData.main.temp) - 32)/1.8000 > 25">
+    <img src="../assets/sunny.jpg" alt="Warm Weather"
+      *ngIf="((weatherData.main.temp) - 32)/1.8000 <=25 && ((weatherData.main.temp) - 32)/1.8000 > 20">
+    <img
+      src="../assets/snowman-cabin-winter-snow-scene-cartoon-illustration-top-hat-scarf-small-its-lights-chimney-smoking-46445483.jpg"
+      alt="Cold Weather" *ngIf="((weatherData.main.temp) - 32)/1.8000 <= 20">
+    <div class="weather-data">
+      <div class="location">
+        {{ weatherData.name }}
       </div>
-    </div>
-    <div class="lower-data">
-      <div class="more-info-label">
-        More infomation
-      </div>
-      <div class="more-info-container">
-        <div class="info-block">
-          <div class="info-block-label">
-            <img src="../assets/istockphoto-1047557290-612x612.jpg" alt="Min Temperature">
-            <span>Min Temp</span>
-          </div>
-          <div class="info-block-value">
-            {{ ((weatherData.main.temp_min) - 32)/1.8000 | number:'1.0-0' }}&deg;C
-          </div>
-        </div>
-  
-        <div class="info-block">
-          <div class="info-block-label">
-            <img src="../assets/416-4160197_cartoon-sun-temperature-element-sale-logo-vector-clipart.png"
-              alt="Min Temperature">
-            <span>Max Temp</span>
-          </div>
-          <div class="info-block-value">
-            {{ ((weatherData.main.temp_max) - 32)/1.8000 | number:'1.0-0' }}&deg;C
-          </div>
-        </div>
-  
-        <div class="info-block">
-          <div class="info-block-label">
-            <img
-              src="../assets/humidity-icon-comic-style-climate-vector-cartoon-illustration-white-isolated-background-temperature-forecast-business-154940142.jpg"
-              alt="Min Temperature">
-            <span>Humidity</span>
-          </div>
-          <div class="info-block-value">
-            {{ weatherData.main.humidity }}%
-          </div>
-        </div>
-  
-        <div class="info-block">
-          <div class="info-block-label">
-            <img src="../assets/istockphoto-1049819508-612x612.jpg" alt="Min Temperature">
-            <span>Wind</span>
-          </div>
-          <div class="info-block-value">
-            {{ weatherData.wind.speed }}km/h
-          </div>
-        </div>
-  
+      <div class="temperature">
+        {{ ((weatherData.main.temp) - 32)/1.8000 | number:'1.0-0' }}&deg;C
       </div>
     </div>
   </div>
-  <router-outlet></router-outlet>
+  <div class="lower-data">
+    <div class="more-info-label">
+      More infomation
+    </div>
+    <div class="more-info-container">
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/istockphoto-1047557290-612x612.jpg" alt="Min Temperature">
+          <span>Min Temp</span>
+        </div>
+        <div class="info-block-value">
+          {{ ((weatherData.main.temp_min) - 32)/1.8000 | number:'1.0-0' }}&deg;C
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/416-4160197_cartoon-sun-temperature-element-sale-logo-vector-clipart.png"
+            alt="Min Temperature">
+          <span>Max Temp</span>
+        </div>
+        <div class="info-block-value">
+          {{ ((weatherData.main.temp_max) - 32)/1.8000 | number:'1.0-0' }}&deg;C
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img
+            src="../assets/humidity-icon-comic-style-climate-vector-cartoon-illustration-white-isolated-background-temperature-forecast-business-154940142.jpg"
+            alt="Min Temperature">
+          <span>Humidity</span>
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.main.humidity }}%
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/istockphoto-1049819508-612x612.jpg" alt="Min Temperature">
+          <span>Wind</span>
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.wind.speed }}km/h
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

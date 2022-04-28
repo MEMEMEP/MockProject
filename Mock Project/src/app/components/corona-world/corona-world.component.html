@@ -3,19 +3,19 @@
     <div class="row d-flex bs text-white">
         <div class="col m-1 cf p-2 rounded fw-bold" style="display: flex;">
             <i class="fas fa-user-alt"></i><span>&ensp;Confirmed: </span>
-            <p>{{ wouldWide?.confirmed }}</p>
+            <p class="text-end" style="padding-left: 120px;">{{ wouldWide?.confirmed }}</p>
         </div>
         <div class="col m-1 rc p-2 rounded fw-bold" style="display: flex;">
             <i class="fas fa-plus-square"> </i><span>&ensp;Recovered: </span>
-            <p>{{ wouldWide?.recovered }}</p>
+            <p class="text-end" style="padding-left: 200px;">{{ wouldWide?.recovered }}</p>
         </div>
         <div class="col m-1 d p-2 rounded fw-bold" style="display: flex;">
             <i class="fas fa-skull-crossbones"></i> <span>&ensp;Deaths: </span>
-            <p>{{ wouldWide?.deaths }}</p>
+            <p class="text-end" style="padding-left: 150px;">{{ wouldWide?.deaths }}</p>
         </div>
         <div class="col m-1 fr p-2 rounded fw-bold" style="display: flex;">
             <i class="fas fa-exclamation-circle"></i> <span>&ensp;Fatality rate: </span>
-            <p>{{ fatalityRate }}%</p>
+            <p class="text-end" style="padding-left: 150px;">{{ fatalityRate }}%</p>
         </div>
     </div>
 </div>
