@@ -1,0 +1,22 @@
+.bs{
+    box-sizing: border-box;
+}
+.cf{
+    background: #673ab7;
+}
+.rc{
+    background: #479788;
+}
+.d{
+    background: #e72e63;
+}
+.fr{
+    background: #c2265b;
+}
+h4{
+    font-family: 'Roboto', sans-serif;
+}
+p , span {
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter !important;
+}
