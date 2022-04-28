@@ -21,9 +21,9 @@ export class CoronaMapComponent implements OnInit {
   ngOnInit(): void {
     this.markerService.ongetData().subscribe((res: Corona[]) => {
       this.coronaData = res;
-      const maxCase = Math.max(...res.map(o => o.confirmed), 0);
+      // const maxCase = Math.max(...res.map(o => o.confirmed), 0);
 
-      console.log(res.map(o => o.confirmed));
+      // console.log(res.map(o => o.confirmed));
 
       this.coronaData.forEach((e: any) => {
         if (e.confirmed <= 3000000) {
