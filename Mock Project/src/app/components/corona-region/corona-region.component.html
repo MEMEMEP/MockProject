@@ -1,34 +1,31 @@
-<!-- <div class="container mt-5">
+<div class="container mt-5">
     <div class="row">
-      <div class="col">
-          <label class="h4 mr-1" >Regional</label>
-          <label class="small-lb text-muted">Country & Region</label>
+        <div class="col">
+            <label class="h4 mr-1">Regional</label>
+            <label class="small-lb text-muted">Country & Region</label>
 
-        <select  [(ngModel)]='selectedOption'
-        (change)='getOptionCountry()'
-        style="width: 200px;border-top: none;border-left: none;border-right: none;border-radius: 0%;" class="form-control">
-          <option value="" selected>Select Country</option>
-          <option *ngFor="let country of getCountry(this.coronaData)" [value]="country"> {{ country}}</option>
-        </select>
-      </div>
+            <select [(ngModel)]='selectedOption' (change)='getCountry()' style="width: 200px;border-top: none;border-left: none;border-right: none;border-radius: 0%;" class="form-control">
+        <option  *ngFor="let item of countries"> {{ item.countryregion}}</option>
+      </select>
+        </div>
 
     </div>
     <div class="row d-flex bs text-white">
-      <div class="col m-1 cf p-2 rounded">
-        <i class="fas fa-user-alt"></i><span>&ensp;Confirmed</span>
-        <!-- <p>{{confirmed}}</p> -->
-      </div>
-      <div class="col m-1 rc p-2 rounded">
-        <i class="fas fa-plus-square"> </i><span>&ensp;Recovered</span>
-        <!-- <p>{{reCover}}</p> -->
-      </div>
-      <div class="col m-1 d p-2 rounded">
-        <i class="fas fa-skull-crossbones"></i> <span>&ensp;Deaths</span>
-        <!-- <p>{{deaths}}</p> -->
-      </div>
-      <div class="col m-1 fr p-2 rounded">
-        <i class="fas fa-exclamation-circle"></i> <span>&ensp;Fatality rate</span>
-        <!-- <p>{{ fatality}}%</p> -->
-      </div>
+        <div class="col m-1 cf p-2 rounded">
+            <i class="fas fa-user-alt"></i><span>&ensp;Confirmed</span>
+            <p>{{confirmed}}</p>
+        </div>
+        <div class="col m-1 rc p-2 rounded">
+            <i class="fas fa-plus-square"> </i><span>&ensp;Recovered</span>
+            <p>{{reCover}}</p>
+        </div>
+        <div class="col m-1 d p-2 rounded">
+            <i class="fas fa-skull-crossbones"></i> <span>&ensp;Deaths</span>
+            <p>{{deaths}}</p>
+        </div>
+        <div class="col m-1 fr p-2 rounded">
+            <i class="fas fa-exclamation-circle"></i> <span>&ensp;Fatality rate</span>
+            <p>{{ fatality}}%</p>
+        </div>
     </div>
-  </div> -->
+</div>
