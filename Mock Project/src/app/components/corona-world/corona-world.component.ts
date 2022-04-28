@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HandleService } from './../../shared/services/handle.service';
+import { Covid19Service } from 'src/app/shared/services/covid19.service';
 
 @Component({
   selector: 'app-corona-world',
@@ -7,12 +7,18 @@ import { HandleService } from './../../shared/services/handle.service';
   styleUrls: ['./corona-world.component.css']
 })
 export class CoronaWorldComponent implements OnInit {
-  public coronaData!: any;
-
-  constructor(private handleService: HandleService) { }
+  wouldWide: any;
+  fatalityRate :string ='';
+  constructor(private httpService : Covid19Service) { }
 
   ngOnInit(): void {
-    this.coronaData = this.handleService.ongetData().subscribe((data:any) => {console.log(data)});
-  }
+    this.httpService.getDataWorldWide().subscribe((data: any) => {
+      this.wouldWide = data;
+      // console.log(this.wouldWide);
+      this.fatalityRate = (this.wouldWide.deaths*100 / this.wouldWide.confirmed).toFixed(2);
+      /* console.log(this.fatalityRate); */
+  })
 
+
+  }
 }
