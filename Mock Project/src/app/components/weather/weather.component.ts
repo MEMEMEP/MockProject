@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherData } from '../../shared/models/weather.model';
-import { WeatherService } from '../../shared/services/weather.service';
+import { Covid19Service } from '../../shared/services/covid19.service';
 
 @Component({
   selector: 'app-weather',
@@ -9,10 +9,10 @@ import { WeatherService } from '../../shared/services/weather.service';
 })
 export class WeatherComponent implements OnInit {
 
-  constructor(private weatherService: WeatherService) { }
+  constructor(private weatherService: Covid19Service) { }
 
   weatherData?: WeatherData
-  cityName: string = 'London';
+  cityName: string = 'Afghanistan';
 
   ngOnInit(): void {
     this.getWeatherData(this.cityName);
