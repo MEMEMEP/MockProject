@@ -14,6 +14,7 @@ export class CoronaMapComponent implements OnInit {
   public coronaData!: Corona[];
 
   private map!: L.Map;
+  layers: any = [];
 
   constructor(private markerService: MarkerService) { }
 
@@ -24,49 +25,53 @@ export class CoronaMapComponent implements OnInit {
 
       console.log(res.map(o => o.confirmed));
 
-      for (const c of res) {
-        const lat = c.location.lat;
-        const lng = c.location.lng;
-        const circle = L.circleMarker([lat, lng],
-          {
-            // radius: MarkerService.scaledRadius(c.confirmed, maxCase)
-            fillColor: "#FF5733",
-            color: "#FF5733",
-            weight: 1,
-            opacity: 1,
-            fillOpacity: 0.4,
-            radius: c.confirmed/300000
-          }
-        )
-          .bindPopup(`Country: ${c.countryregion}, Case: ${c.confirmed}, Deaths: ${c.deaths}, Recovered: ${c.recovered}`)
-          .addTo(this.map);
-      }
+      this.coronaData.forEach((e: any) => {
+        if (e.confirmed <= 6000000) {
+          const circle = L.circleMarker([e.location.lat, e.location.lng],
+            {
+              // radius: MarkerService.scaledRadius(c.confirmed, maxCase)
+              fillColor: "#FF5733",
+              color: "#FF5733",
+              weight: 1,
+              opacity: 1,
+              fillOpacity: 0.4,
+              radius: 10
+            }
+          )
+            .bindPopup(`Country: ${e.countryregion}, Case: ${e.confirmed}, Deaths: ${e.deaths}, Recovered: ${e.recovered}`)
+            this.layers.push(circle);
+        } else if (e.confirmed > 6000000) {
+          const circle = L.circleMarker([e.location.lat, e.location.lng],
+            {
+              // radius: MarkerService.scaledRadius(c.confirmed, maxCase)
+              fillColor: "#FF5733",
+              color: "#FF5733",
+              weight: 1,
+              opacity: 1,
+              fillOpacity: 0.4,
+              radius: e.confirmed/600000
+            }
+          )
+            .bindPopup(`Country: ${e.countryregion}, Case: ${e.confirmed}, Deaths: ${e.deaths}, Recovered: ${e.recovered}`)
+            this.layers.push(circle);
+        }
+      });
+
+// ////// move to the Country  of the map has:
+      // this.map.panTo(new L.LatLng(c.location.lat, c.location.lng));
     });
+
   }
 
-  private initMap(): void {
-    this.map = L.map('map', {
-      center: [39.8282, -98.5795],
-      zoom: 3
-    });
-
-    const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      minZoom: 3,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(this.map);
-
-    // const marker =L.marker([51.5, -0.09]).addTo(this.map)
-    // .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-    // .openPopup();
-    //  const circle = L.circleMarker([ 14.058324, 108.277199 ], { radius: 50 }).addTo(this.map)
-  }
-
-
-  ngAfterViewInit(): void {
-    this.initMap();
-  }
-
-
+  options = {
+    layers: [
+      tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '...',
+      }),
+    ],
+    zoom: 5,
+    center: latLng(39.8282, -98.5795),
+  };
 
 }
