@@ -5,7 +5,8 @@
           <label class="small-lb text-muted">Country & Region</label>
 
         <select  [(ngModel)]='selectedOption'  (change)='getOptionCountry()' style="width: 200px;border-top: none;border-left: none;border-right: none;border-radius: 0%;" class="form-control">
-          <option  *ngFor="let country of getCountry(this.coronaData)"> {{ country}}</option>
+          <option value="0"  selected > Select Country</option>
+          <option  *ngFor="let country of getCountry(this.coronaData)" [value]="country"> {{ country}}</option>
         </select>
       </div>
 

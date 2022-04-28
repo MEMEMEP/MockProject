@@ -9,6 +9,8 @@ import { Corona } from './../../shared/models/corona.model';
 })
 export class CoronaRegionComponent implements OnInit {
   public coronaData!: Corona[];
+  selectedOption: string = '';
+  CountryHasSelect!: Corona;
 
   constructor(private handleService: HandleService) { }
 
@@ -20,6 +22,9 @@ export class CoronaRegionComponent implements OnInit {
 
   public getCountry(DATA: Corona[]) {
     return [...new Set(this.coronaData.map((item: any) => item.countryregion))];
+  }
+  getCountryByName(name: string) {
+    return this.coronaData.filter(item => item.countryregion == name);
   }
 
 }
