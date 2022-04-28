@@ -26,10 +26,9 @@ export class CoronaMapComponent implements OnInit {
       console.log(res.map(o => o.confirmed));
 
       this.coronaData.forEach((e: any) => {
-        if (e.confirmed <= 6000000) {
+        if (e.confirmed <= 3000000) {
           const circle = L.circleMarker([e.location.lat, e.location.lng],
             {
-              // radius: MarkerService.scaledRadius(c.confirmed, maxCase)
               fillColor: "#FF5733",
               color: "#FF5733",
               weight: 1,
@@ -40,16 +39,15 @@ export class CoronaMapComponent implements OnInit {
           )
             .bindPopup(`Country: ${e.countryregion}, Case: ${e.confirmed}, Deaths: ${e.deaths}, Recovered: ${e.recovered}`)
             this.layers.push(circle);
-        } else if (e.confirmed > 6000000) {
+        } else if (e.confirmed > 3000000) {
           const circle = L.circleMarker([e.location.lat, e.location.lng],
             {
-              // radius: MarkerService.scaledRadius(c.confirmed, maxCase)
               fillColor: "#FF5733",
               color: "#FF5733",
               weight: 1,
               opacity: 1,
               fillOpacity: 0.4,
-              radius: e.confirmed/600000
+              radius: e.confirmed/300000
             }
           )
             .bindPopup(`Country: ${e.countryregion}, Case: ${e.confirmed}, Deaths: ${e.deaths}, Recovered: ${e.recovered}`)
@@ -57,12 +55,18 @@ export class CoronaMapComponent implements OnInit {
         }
       });
 
+
 // ////// move to the Country  of the map has:
       // this.map.panTo(new L.LatLng(c.location.lat, c.location.lng));
     });
 
   }
 
+
+
+  changeView() {
+    this.map.panTo(new L.LatLng(40.737, -73.923));
+  }
   options = {
     layers: [
       tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
