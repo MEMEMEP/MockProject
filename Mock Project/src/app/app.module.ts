@@ -8,7 +8,8 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { MarkerService } from './shared/services/marker.service';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule }  from '@angular/forms';
 
 import { CoronaChartComponent } from './components/corona-chart/corona-chart.component';
 import { CoronaMapComponent } from './components/corona-map/corona-map.component';
@@ -35,7 +36,8 @@ import { Covid19Service } from './shared/services/covid19.service';
     LeafletModule,
     FormsModule,
     BrowserAnimationsModule,
-    NgxChartsModule
+    NgxChartsModule,
+    ReactiveFormsModule
   ],
   providers: [
     MarkerService,
